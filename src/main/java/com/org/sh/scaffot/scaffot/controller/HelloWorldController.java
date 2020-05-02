@@ -24,7 +24,6 @@ public class HelloWorldController {
         System.out.println(testRedis);
 
         Object testRedis1 = redisTemplate.opsForValue().get("testRedis");
-
         System.out.println(testRedis1);
 
 
