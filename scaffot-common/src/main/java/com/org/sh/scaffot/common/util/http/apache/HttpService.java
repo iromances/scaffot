@@ -11,14 +11,22 @@ import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.ImmutableHttpProcessor;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HttpService {
 
 
+    static class OOMObject{
+
+    }
+
     public static void main(String[] args) throws IOException {
 
-        get("");
+        ArrayList<OOMObject> oomObjectArrayList = new ArrayList<OOMObject>();
 
+        while (true){
+            oomObjectArrayList.add(new OOMObject());
+        }
 
     }
 
@@ -89,7 +97,7 @@ public class HttpService {
         custom.evictExpiredConnections();
         custom.useSystemProperties();
 
-        custom.evictIdleConnections();
+       /* custom.evictIdleConnections();
         custom.setBackoffManager();
         custom.setConnectionBackoffStrategy();
         custom.setConnectionManager();
@@ -118,7 +126,7 @@ public class HttpService {
         custom.setRedirectStrategy();
         custom.setPublicSuffixMatcher();
         custom.setProxyAuthenticationStrategy();
-        custom.setProxy();
+        custom.setProxy();*/
 
         HttpProcessor httpProcessor = new ImmutableHttpProcessor(requestInterceptors, responseInterceptors);
         custom.setHttpProcessor(httpProcessor);
